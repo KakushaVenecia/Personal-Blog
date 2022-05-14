@@ -1,0 +1,5 @@
+start.sh
+virtual/
+__pycache__/
+vscode/
+settings.json
