@@ -36,4 +36,4 @@ For any further inquiries or contributions or comments, reach me at [Kakusha Ven
 
 [MIT License](https://github.com/KakushaVenecia/Personal-Blog/blob/main/license)
 
-Copyright (c) 2021
+Copyright (c) 2022
