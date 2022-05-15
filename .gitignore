@@ -3,3 +3,16 @@ virtual/
 __pycache__/
 vscode/
 settings.json
+
+*.pyc
+
+
+instance/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+dist/
+build/
+*.egg-info/
