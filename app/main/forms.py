@@ -7,12 +7,11 @@ class AdminForm(FlaskForm):
     password = PasswordField('Password',validators =[DataRequired()])
     submit = SubmitField('Sign In')
 
-
-class UserForm(FlaskForm):
-    username = StringField('Your Username',validators=[DataRequired(),Email()])
-    password = PasswordField('Password',validators =[DataRequired()])
-    remember = BooleanField('Remember me')
-    submit = SubmitField('Sign In')
+class BlogForm(FlaskForm):
+    title = StringField ('Blog Title', validators =[DataRequired(),Email()])
+    post= TextAreaField ('Write away', validators=[DataRequired()])
+    category=StringField('Category',validators = [DataRequired()])
+    submit = SubmitField('Publish')
 
 class SubscribeForm(FlaskForm):
     email = StringField('Your Username',validators=[DataRequired(),Email()])

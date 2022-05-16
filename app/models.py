@@ -46,24 +46,9 @@ class Blog(UserMixin, db.Model):
     title = db.Column(db.String(255))
     post= db.Column(db.String(255))
     category=db.Column(db.String(255))
-    admin_id = db.Column(db.Integer, db.ForeignKey('admins.id'))
-    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     comment = db.relationship('Comment', backref='blog', lazy='dynamic')
-       
-
-class Admin(UserMixin,db.Model):
-    __tablename__ = 'admins'
-    id = db.Column(db.Integer,primary_key=True)
-    username= db.Column(db.String(255))
-    email = db.Column(db.String(255),unique = True,index = True)
-    password_hash = db.Column(db.String(255))
-    blog = db.Column(db.Integer, db.ForeignKey('blogs.id'))
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
-
+    
 
 class Comment(db.Model):
     __tablename__ ='comments'
@@ -73,5 +58,15 @@ class Comment(db.Model):
     blog_id = db.Column(db.Integer,db.ForeignKey("blogs.id"))
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
 
-    
-    
+class Subscriber(db.Model):
+    __tablename__='subscribers'  
+
+    id = db.Column(db.Integer,primary_key=True)
+    email = db.Column(db.String(255),unique = True,index = True)
+
+    def save_user(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def __repr__(self):
+        return f'User{self.username}'
