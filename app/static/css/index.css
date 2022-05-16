@@ -1,0 +1,39 @@
+body {
+    font-family: "Baloo 2", cursive;
+    font-size: 16px;
+    color: #ffffff;
+    text-rendering: optimizeLegibility;
+    font-weight: initial;
+};
+.postcard {
+    height:30px;
+    width :30px;
+    flex-wrap: wrap;
+    display: flex;
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+    border-radius: 10px;
+    margin: 0 0 2rem 0;
+    overflow: hidden;
+    position: relative;
+    color: #ffffff;
+
+}
+.photo {
+    height: 50px;
+    width: 50%;
+}
+
+.photo img {
+    height: 50%;
+    width: 50%;
+}
+
+h2{
+font-style: italic !important;
+font-family: cursive !important;
+text-align: center !important;
+}
+
+body {
+    background-color: #FCBF49;
+}
