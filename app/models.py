@@ -17,7 +17,8 @@ class User(UserMixin, db.Model):
     username= db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
     password_hash = db.Column(db.String(255))
-    comments = db.relationship('Comment', backref='user')
+    blog = db.relationship('Blog', backref='user', lazy='dynamic')
+    comment = db.relationship('Comment', backref='user', lazy='dynamic')
    
     
     @property
@@ -45,8 +46,9 @@ class Blog(UserMixin, db.Model):
     title = db.Column(db.String(255))
     post= db.Column(db.String(255))
     category=db.Column(db.String(255))
-    admin_id = db.Column(db.Integer, db.ForeignKey('admins.id'),nullable=False)
-    comments = db.relationship('Comment', backref='blog', lazy = 'dynamic')
+    admin_id = db.Column(db.Integer, db.ForeignKey('admins.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    comment = db.relationship('Comment', backref='blog', lazy='dynamic')
        
 
 class Admin(UserMixin,db.Model):
@@ -56,6 +58,8 @@ class Admin(UserMixin,db.Model):
     email = db.Column(db.String(255),unique = True,index = True)
     password_hash = db.Column(db.String(255))
     blog = db.Column(db.Integer, db.ForeignKey('blogs.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+
     def delete(self):
         db.session.delete(self)
         db.session.commit()
