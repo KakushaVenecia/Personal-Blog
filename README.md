@@ -28,6 +28,12 @@ Personal blog that consumes the a quotes API
 4. Run using the executable file ,with command :
    - ./start.sh
 
+
+## BDD
+| Behaviour | Input | Output |
+| :---------------- | :---------------: | ------------------: |
+| Load the page | **On page load** | Get all blogs, Select between Subscribe and login|
+
 ## Contact Information
 
 For any further inquiries or contributions or comments, reach me at [Kakusha Venecia](https://github.com/KakushaVenecia)
