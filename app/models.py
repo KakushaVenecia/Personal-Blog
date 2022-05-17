@@ -50,6 +50,13 @@ class Blog(UserMixin, db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
     
 
+    def save_blog(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def __repr__(self):
+        return f'Blog{self.username}'
+
 class Comment(db.Model):
     __tablename__ ='comments'
     id = db.Column(db.Integer,primary_key=True)
@@ -57,6 +64,14 @@ class Comment(db.Model):
     date = db.Column(db.DateTime, nullable=False, default= datetime.utcnow)
     blog_id = db.Column(db.Integer,db.ForeignKey("blogs.id"))
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def __repr__(self):
+        return f'Comment{self.username}'
+
 
 class Subscriber(db.Model):
     __tablename__='subscribers'  
@@ -69,4 +84,4 @@ class Subscriber(db.Model):
         db.session.commit()
 
     def __repr__(self):
-        return f'User{self.username}'
+        return f'Subscriber{self.username}'

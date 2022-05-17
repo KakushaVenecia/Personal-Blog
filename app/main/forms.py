@@ -8,7 +8,7 @@ class AdminForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 class BlogForm(FlaskForm):
-    title = StringField ('Blog Title', validators =[DataRequired(),Email()])
+    title = StringField ('Blog Title', validators =[DataRequired()])
     post= TextAreaField ('Write away', validators=[DataRequired()])
     category=StringField('Category',validators = [DataRequired()])
     submit = SubmitField('Publish')

@@ -13,7 +13,7 @@ def index():
     random_quotes = requests.get('http://quotes.stormconsultancy.co.uk/random.json')
     response = random_quotes.json()
     subscribeform = SubscribeForm()
-    return render_template('/index.html' , response =response , subscribeform =subscribeform)
+    return render_template('index.html' , response =response , subscribeform =subscribeform)
 
 @main.route('/random_quotes',methods=['GET','POST'])
 def json():
@@ -38,7 +38,7 @@ def blog():
     if blogform.validate_on_submit():
         
         blog = Blog(title=blogform.title.data, post=blogform.post.data, category=blogform.category.data)
-
+        
         db.session.add(blog)
         db.session.commit()
         flash('Thanks for your post!')
